@@ -88,23 +88,31 @@
             --color-primary-transparent-lite: {{ color2rgba($themeColor, 0.3) }};"
     >
         <div class="wrapper" id="app">
-            @include('public.layout.top_nav')
+            @if(!is_mobile_app())
+                @include('public.layout.top_nav')
+            @endif
             @include('public.layout.header')
             @include('public.layout.navigation')
-            @include('public.layout.breadcrumb')
+            @if(!is_mobile_app())
+                @include('public.layout.breadcrumb')
+            @endif
 
             @yield('content')
 
-            @include('public.home.sections.subscribe')
-            @include('public.layout.footer')
+            @if(!is_mobile_app())
+                @include('public.home.sections.subscribe')
+                @include('public.layout.footer')
+            @endif
 
             <div class="overlay"></div>
 
             @include('public.layout.sidebar_menu')
             @include('public.layout.sidebar_cart')
             @include('public.layout.alert')
-            @include('public.layout.newsletter_popup')
-            @include('public.layout.cookie_bar')
+            @if(!is_mobile_app())
+                @include('public.layout.newsletter_popup')
+                @include('public.layout.cookie_bar')
+            @endif
         </div>
 
         @stack('pre-scripts')
