@@ -25,5 +25,11 @@
                 <i class="lab la-tumblr"></i>
             </a>
         </li>
+
+        <li>
+            <a href="https://wa.me/?text={{ $product->dynamicLink() }}" title="{{ trans('storefront::product.whatsapp') }}" target="_blank">
+                <i class="lab la-whatsapp"></i>
+            </a>
+        </li>
     </ul>
 </div>
