@@ -30,6 +30,9 @@ class SettingTabs extends Tabs
             ->add($this->newsletter())
             ->add($this->customCssJs());
 
+        $this->group('api_keys', trans('setting::settings.tabs.group.api_keys'))
+            ->add($this->firebase());
+
         $this->group('social_logins', trans('setting::settings.tabs.group.social_logins'))
             ->add($this->facebook())
             ->add($this->google());
@@ -195,6 +198,21 @@ class SettingTabs extends Tabs
         return tap(new Tab('custom_css_js', trans('setting::settings.tabs.custom_css_js')), function (Tab $tab) {
             $tab->weight(35);
             $tab->view('setting::admin.settings.tabs.custom_css_js');
+        });
+    }
+
+    private function firebase()
+    {
+        return tap(new Tab('firebase', trans('setting::settings.tabs.firebase')), function (Tab $tab) {
+            $tab->weight(36);
+
+            $tab->fields([
+                'firebase_web_api_key',
+                'firebase_dynamic_link_prefix',
+                'firebase_apn'
+            ]);
+
+            $tab->view('setting::admin.settings.tabs.firebase');
         });
     }
 
