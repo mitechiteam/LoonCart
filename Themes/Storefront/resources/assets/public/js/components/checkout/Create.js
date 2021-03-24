@@ -494,5 +494,12 @@ export default {
                 }).open();
             }
         },
+
+        confirmRazorpayOrder(receipt, response) {
+            let vm = this;
+
+            vm.placingOrder = true;
+            vm.confirmOrder(receipt, 'razorpay', response);
+        },
     },
 };
