@@ -3,7 +3,7 @@
 
     <ul class="list-inline social-links">
         <li>
-            <a href="https://www.facebook.com/sharer/sharer.php?u={{ $product->dynamicLink()) }}" title="{{ trans('storefront::product.facebook') }}" target="_blank">
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ $product->dynamicLink() }}" title="{{ trans('storefront::product.facebook') }}" target="_blank">
                 <i class="lab la-facebook"></i>
             </a>
         </li>
